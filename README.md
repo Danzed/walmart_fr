@@ -37,6 +37,30 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Docker
+
+To init docker in your local machine. 
+
+In the project directory, you can run to build image:
+```
+docker build -t walmart:fr .
+```
+Now, to run dev image you can run:
+```
+docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true walmart:fr
+```
+### Run Production
+
+If you will run in production enviroment, you can run:
+
+```
+docker build -f Dockerfile.prod -t walmart:frprod .
+```
+Now, to run prod image you can run:
+```
+docker run -it --rm -p 1337:80 walmart:frprod
+```
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
