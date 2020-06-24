@@ -3,7 +3,7 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
+// import FormControl from '@material-ui/core/FormControl';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+
+import ProductCard from './component/ProductCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,6 +70,19 @@ function App() {
                   <form className={classes.root} noValidate autoComplete="off">
                     <TextField fullWidth id="outlined-basic" label="Buscar" variant="outlined" />
                   </form>
+                </Grid>
+              </Grid>
+
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs={3}>
+                <Grid container justify="center" spacing={3}>
+                  <ProductCard></ProductCard>
                 </Grid>
               </Grid>
 
