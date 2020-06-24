@@ -50,7 +50,7 @@ function App() {
               <MenuIcon />
             </IconButton> */}
             <Typography variant="h6" className={classes.title}>
-              Waltmart
+              Walmart
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
           </Toolbar>
