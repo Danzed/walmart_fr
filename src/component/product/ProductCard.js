@@ -3,17 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 
 import './ProductCard.css';
-
-const FormatNumber = ({ number }) => {
-    return (
-        <span>
-            {new Intl.NumberFormat("ES-CL", {
-                style: "currency",
-                currency: "CLP"
-            }).format(number)}
-        </span>
-    );
-}
+import FormatNumber from '../../component/common/FormatNumber';
 
 const ProductCard = ({ product }) => {
     return (
