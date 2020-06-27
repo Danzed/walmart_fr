@@ -3,7 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-import ProductCard from './ProductCard';
+import ProductList from './product/ProductList';
+
 import './InitFind.css';
 
 const InitFind = () => {
@@ -46,16 +47,7 @@ const InitFind = () => {
                     </Button>
                 </Grid>
             </Grid>
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                spacing={4}
-            >
-                {productsList.map(product => <ProductCard key={product._id} product={product} />)}
-
-            </Grid>
+            <ProductList productsList={productsList}></ProductList>
         </div>
     );
 }
