@@ -49,7 +49,7 @@ Now, to run dev image you can run:
 ```
 docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true walmart:fr
 ```
-### Run Production
+### `Run Production`
 
 If you will run in production enviroment, you can run:
 

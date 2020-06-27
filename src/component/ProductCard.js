@@ -1,74 +1,73 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+
 import './ProductCard.css';
 
-class ProductCard extends Component {
-    render() {
-        return (
+const FormatNumber = ({ number }) => {
+    return (
+        <span>
+            {new Intl.NumberFormat("ES-CL", {
+                style: "currency",
+                currency: "CLP"
+            }).format(number)}
+        </span>
+    );
+}
+
+const ProductCard = ({ product }) => {
+    return (
+        <Grid item >
             <div>
                 <div className="container">
                     <div className="card">
                         <div className="card-head">
                             <img src="https://www.walmartchile.cl/views/layout/walmartchile/img/logo-walmartchile.png" alt="logo" className="card-logo" />
-                            <img src="https://www.lider.cl/catalogo/images/babyIcon.svg" alt="Shoe" className="product-img" />
-                            {/* <div className="product-detail">
-                                <h2>Hartbeespoort</h2> Support and Nike Zoom Air come together for a more supportive feel with high-speed responsiveness
-                            </div> */}
-                            {/* <span className="back-text">
-                                Lider
-                            </span> */}
+                            <img src={`https://${product.image}`} alt="Shoe" className="product-img" />
                         </div>
                         <div className="card-body">
                             <div className="product-desc">
                                 <span className="product-title">
-                                    dsaasd
-                                    {/* <span className="badge">
-                                        New
-                                    </span> */}
+                                    {product.brand}
                                 </span>
                                 <span className="product-caption">
-                                    zlrwax bñyrh
-                                </span>
-                                {/* <span className="product-rating">
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star grey"></i>
-                                </span> */}
-                            </div>
-                            <div className="product-properties">
-                                <span className="product-price-before">
-                                    <b>Antes</b> $600.000
+                                    {product.description}
                                 </span>
                             </div>
+                            {product.isPalindrome &&
+                                <div className="product-properties">
+                                    <span className="product-price-before">
+                                        <b>Antes</b> <FormatNumber number={product.price} />
+                                    </span>
+                                </div>
+                            }
                             <div className="product-properties">
-                                {/* <span className="product-size">
-                                    <h4>Size</h4>
-                                    <ul className="ul-size">
-                                        <li><a href="#">7</a></li>
-                                        <li><a href="#">8</a></li>
-                                        <li><a href="#">9</a></li>
-                                        <li><a href="#" className="active">10</a></li>
-                                        <li><a href="#">11</a></li>
-                                    </ul>
-                                </span> */}
-                                {/* <span className="product-color">
-                                    <h4>Colour</h4>
-                                    <ul className="ul-color">
-                                        <li><a href="#" className="orange active"></a></li>
-                                        <li><a href="#" className="green"></a></li>
-                                        <li><a href="#" className="yellow"></a></li>
-                                    </ul>
-                                </span> */}
                                 <span className="product-price">
-                                    $400.000
+                                    {product.isPalindrome &&
+                                        <FormatNumber number={product.pricePalindrome} />
+                                    }
+                                    {!product.isPalindrome &&
+                                        <FormatNumber number={product.price} />
+                                    }
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        );
+        </Grid>
+    );
+}
+
+ProductCard.prototype = {
+    product: {
+        id: PropTypes.number.isRequired,
+        brand: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        isPalindrome: PropTypes.bool.isRequired,
+        price: PropTypes.number.isRequired,
+        pricePalindrome: PropTypes.number.isRequired
     }
 }
 

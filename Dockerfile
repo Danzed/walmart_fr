@@ -6,6 +6,7 @@ WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
+ENV REACT_APP_BASE_API_URI http://localhost:8080/api
 
 # install app dependencies
 COPY package.json ./

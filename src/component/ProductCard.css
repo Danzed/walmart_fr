@@ -206,13 +206,12 @@
 .product-price-before {
     /* position: absolute; */
     background: #ffd414;
-    text-decoration: line-through;
     padding: 7px 20px;
     text-align: center;
     display: inline-block;
     font-size: 10px;
     font-weight: 200;
-    color: #fff;
+    color: #000000;
     border-radius: 7px;
     margin-top: 1%;
     box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
@@ -226,7 +225,7 @@
     display: inline-block;
     font-size: 24px;
     font-weight: 200;
-    color: #fff;
+    color: #000000;
     border-radius: 7px;
     margin-top: 5%;
     box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
