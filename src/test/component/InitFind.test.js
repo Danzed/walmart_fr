@@ -12,20 +12,23 @@ jest.mock('axios');
 
 describe('InitFind', () => {
 
+    let wrapper;
+
+    beforeEach(() => {
+        wrapper = shallow(<InitFind />);
+    });
+
     it('should render Material Component', () => {
-        const wrapper = shallow(<InitFind />);
         expect(wrapper.find(Grid)).toHaveLength(4);
         expect(wrapper.find(TextField)).toHaveLength(1);
         expect(wrapper.find(Button)).toHaveLength(1);
     });
 
     it('should simulate keydown enter', () => {
-        const wrapper = shallow(<InitFind />);
         expect(wrapper.find('#txtFind').simulate('keydown', { key: 'Enter' })).toHaveLength(1);
     });
 
     it('should simulate keydown not enter', () => {
-        const wrapper = shallow(<InitFind />);
         expect(wrapper.find('#txtFind').simulate('keydown', { key: '1' })).toHaveLength(1);
     });
 
@@ -53,9 +56,7 @@ describe('InitFind', () => {
             }
         ];
         axios.get.mockImplementationOnce(() => Promise.resolve(mockProductList));
-        const wrapper = shallow(<InitFind />);
-        // wrapper.instance().setProductsList(mockProductList);
-        wrapper.find(productsList).simulate('setProductsList', mockProductList);
+        wrapper.simulate('addProductsToList', mockProductList);
         wrapper.find('#txtFind').simulate('change', { target: { value: '1881' } });
         expect(wrapper.find('#btnFind').simulate('click')).toHaveLength(1);
     });
