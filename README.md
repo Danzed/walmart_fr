@@ -17,6 +17,10 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn coverage`
+
+Launches the test and coverage.
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.<br />
@@ -60,6 +64,12 @@ Now, to run prod image you can run:
 ```
 docker run -it --rm -p 1337:80 walmart:frprod
 ```
+
+## ENV FILE
+
+This project has 1 env variable. When cloned, the project will contain an env.example file with the variables, for security reasons they have default values, this won't prevent the project to launch, but will limit it's functionallity, although you can assign your own values to the variables in order to the project fully works.
+
+-REACT_APP_BASE_API_URI: http://localhost:8080/api by default, you can replace it with your custom api url.
 
 ## Learn More
 
