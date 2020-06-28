@@ -69,7 +69,7 @@ docker run -it --rm -p 1337:80 walmart:frprod
 
 This project has 1 env variable. When cloned, the project will contain an env.example file with the variables, for security reasons they have default values, this won't prevent the project to launch, but will limit it's functionallity, although you can assign your own values to the variables in order to the project fully works.
 
--REACT_APP_BASE_API_URI: http://localhost:8080/api by default, you can replace it with your custom api url.
+- REACT_APP_BASE_API_URI: http://localhost:8080/api by default, you can replace it with your custom api url.
 
 ## Learn More
 
