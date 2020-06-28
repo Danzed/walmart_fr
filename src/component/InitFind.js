@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -12,13 +13,24 @@ const InitFind = () => {
     const [findInput, setFindInput] = useState('');
     const [productsList, setProductsList] = useState([]);
 
-    const handleFindClick = async () => {
-        console.log('aca', findInput.length);
+    const addProductsToList = (products) => {
+        console.log('ACA');
+        setProductsList([...products]);
+    }
+
+    const cleanProductsList = () => {
         setProductsList(productsList.filter(x => x.id === 0));
+    }
+
+    const handleFindClick = async () => {
+        cleanProductsList();
         if (findInput.length >= 3) {
-            const productsResponse = await fetch(process.env.REACT_APP_BASE_API_URI + "/product/" + findInput);
-            const products = await productsResponse.json();
-            setProductsList([...products]);
+            axios.get(process.env.REACT_APP_BASE_API_URI + "/product/" + findInput)
+                .then(res => {
+                    const products = res.data;
+                    addProductsToList(products);
+                })
+
         }
     }
 
